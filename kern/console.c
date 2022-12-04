@@ -192,6 +192,8 @@ cga_putc(int c)
 	}
 
 	// What is the purpose of this?
+    // Loo: 屏幕的大小是固定的, 如果数据溢出了, 就丢弃第一行的数据,
+    //      其他的内容以此向上移动一行
 	if (crt_pos >= CRT_SIZE) {
 		int i;
 

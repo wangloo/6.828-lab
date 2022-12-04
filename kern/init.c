@@ -9,10 +9,22 @@
 #include <kern/pmap.h>
 #include <kern/kclock.h>
 
+// Test the stack backtrace function (lab 1 only)
+void
+test_backtrace(int x)
+{
+    cprintf("entering test_backtrace %d\n", x);
+	if (x > 0)
+		test_backtrace(x-1);
+	else
+		mon_backtrace(0, 0, 0);
+    cprintf("leaving test_backtrace %d\n", x);
+}
 
 void
 i386_init(void)
 {
+
 	extern char edata[], end[];
 
 	// Before doing anything else, complete the ELF loading process.
@@ -25,10 +37,17 @@ i386_init(void)
 	cons_init();
 
 	cprintf("6828 decimal is %o octal!\n", 6828);
+	cprintf("6828 decimal is %o octal!\n", 6828);
+	cprintf("6828 decimal is %o octal!\n", 6828);
+	cprintf("6828 decimal is %o octal!\n", 6828);
+	cprintf("6828 decimal is %o octal!\n", 6828);
 
 	// Lab 2 memory management initialization functions
 	mem_init();
 
+    /* unsigned int i = 0x00646c72; */
+    /* cprintf("H%x Wo%s", 57616, &i); */
+    /* Log("This is a log\n"); */
 	// Drop into the kernel monitor.
 	while (1)
 		monitor(NULL);
