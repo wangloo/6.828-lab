@@ -16,3 +16,8 @@
 /sol?/
 /myapi.key
 /.suf
+
+# wangloo config
+/tags
+/compile_commands.json
+/.cache/
