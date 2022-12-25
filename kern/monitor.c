@@ -25,6 +25,7 @@ static struct Command commands[] = {
 	{ "help", "Display this list of commands", mon_help },
 	{ "kerninfo", "Display information about the kernel", mon_kerninfo },
     { "backtrace", "Stack back trace", mon_backtrace},
+    { "showmappings", "Show va to pa mappings", mon_showmappings},
 };
 
 /***** Implementations of basic kernel monitor commands *****/
@@ -88,6 +89,12 @@ mon_backtrace(int argc, char **argv, struct Trapframe *tf)
 }
 
 
+int
+mon_showmappings(int argc, char **argv, struct Trapframe *tf)
+{
+    // I decide to do this in my 毕业设计
+    return 0;
+}
 
 /***** Kernel monitor command interpreter *****/
 
